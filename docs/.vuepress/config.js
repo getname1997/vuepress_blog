@@ -17,7 +17,6 @@ export default defineUserConfig({
             {
                 text: '主页',
                 link: '/',
-
             },
             {
                 text: 'book',

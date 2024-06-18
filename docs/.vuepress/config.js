@@ -4,7 +4,6 @@ export default defineUserConfig({
     lang: 'zh-CN',
     title: 'Gx',
     description: '',
-    base:'/vuepress_blog/',
     Frontmatter:{
         home: true,
     },

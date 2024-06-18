@@ -9,7 +9,6 @@ export default defineUserConfig({
     },
     theme: defaultTheme({
         Frontmatter:{
-
             home: true,
         },
         navbar: [

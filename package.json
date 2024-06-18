@@ -1,0 +1,16 @@
+{
+  "name": "vuepress_blog",
+  "version": "1.0.0",
+  "description": "一个blog",
+  "main": "index.js",
+  "author": "G_xing <g_xing@163.com>",
+  "type": "module",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy-gh": "yarn build && bash scripts/deploy-gh.sh"
+  },
+  "devDependencies": {
+    "vuepress": "2.0.0-beta.68"
+  }
+}

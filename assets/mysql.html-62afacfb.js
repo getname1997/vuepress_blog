@@ -1,0 +1,13 @@
+import{_ as s,o as n,c as a,e as t}from"./app-90e665c7.js";const o={},e=t(`<h1 id="连接数据库" tabindex="-1"><a class="header-anchor" href="#连接数据库" aria-hidden="true">#</a> 连接数据库</h1><h2 id="根目录配置-ormconfig-json" tabindex="-1"><a class="header-anchor" href="#根目录配置-ormconfig-json" aria-hidden="true">#</a> 根目录配置 ormconfig.json</h2><div class="language-json line-numbers-mode" data-ext="json"><pre class="language-json"><code>
+<span class="token punctuation">{</span> 
+    <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;mysql&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;host&quot;</span><span class="token operator">:</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;port&quot;</span><span class="token operator">:</span> <span class="token number">3306</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;password&quot;</span><span class="token operator">:</span> <span class="token string">&quot;root&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;database&quot;</span><span class="token operator">:</span> <span class="token string">&quot;blog&quot;</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;entities&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;dist/**/*.entity{.ts,.js}&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    <span class="token property">&quot;synchronize&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span> 
+<span class="token punctuation">}</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,3),p=[e];function c(r,i){return n(),a("div",null,p)}const u=s(o,[["render",c],["__file","mysql.html.vue"]]);export{u as default};

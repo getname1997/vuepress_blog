@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-9612d320","path":"/vue3/Git.html","title":"🔔 Git的提交规则","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1718689617000,"contributors":[{"name":"G_xing","email":"g_xing@163.com","commits":1}]},"filePathRelative":"vue3/Git.md"}');export{t as data};

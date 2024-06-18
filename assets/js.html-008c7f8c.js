@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-4a00dd83","path":"/book/js.html","title":"js","lang":"zh-CN","frontmatter":{},"headers":[{"level":3,"title":"数组","slug":"数组","link":"#数组","children":[]}],"git":{"updatedTime":1718689617000,"contributors":[{"name":"G_xing","email":"g_xing@163.com","commits":1}]},"filePathRelative":"book/js.md"}');export{t as data};

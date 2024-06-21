@@ -22,7 +22,7 @@ jobs:
       - name: Setup yarn
         uses: actions/setup-node@v4
         with:
-          # 选择要使用的 pnpm 版本
+          # 选择要使用的 yarn 版本
           cache: 'yarn'
           node-version: '20'
           run_install: true

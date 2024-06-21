@@ -13,7 +13,7 @@ export default defineUserConfig({
         },
         navbar: [
             {
-                text: '主页',
+                text: '主页1',
                 link: '/',
             },
             {

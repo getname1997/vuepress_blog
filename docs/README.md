@@ -33,15 +33,16 @@
 * [three 3D库](https://threejs.org/) [中文地址](http://www.webgl3d.cn/)
 
 ## 2024下半年计划
-- [ ] 软考学习起来（系统集成项目管理工程师）。
-- [ ] 了解pmp如有机会先报名学习起来
-- [ ] 英语每日学习10分钟+
-- [ ] 我爱学习
+- [ ] 软考学习起来（系统集成项目管理工程师）。 未完成
+- [ ] 了解pmp如有机会先报名学习起来 未完成
+- [ ] 英语每日学习10分钟+ 
+- [ ] 我爱学习 未完成
+- [ ] 使用Flutter开发一个记账应用 进行中
 
 ## 最近需要学习（学习顺序由上到下）
 - [x] vue3源码 [mini vue](https://github.com/cuixiaorui/mini-vue/) **(计划时间 22/6/28 - 22/8/31)**
-- [ ] 3d  [three](http://www.webgl3d.cn/) [webgl](http://www.webgl3d.cn/WebGL/) [cesium 三维地图](https://cesium.com/platform/cesiumjs/)**(计划时间 22/9/1 - 22/10/31)**
-- [ ] [Rust 程序设计语言](https://kaisery.github.io/trpl-zh-cn/title-page.html)  [rust](https://www.rust-lang.org/zh-CN/)**(计划时间 22/11/1 - 23/1/1)**
+- [ ] 3d  [three](http://www.webgl3d.cn/) [webgl](http://www.webgl3d.cn/WebGL/) [cesium 三维地图](https://cesium.com/platform/cesiumjs/)**(计划时间 22/9/1 - 22/10/31)** 未完成
+- [ ] [Rust 程序设计语言](https://kaisery.github.io/trpl-zh-cn/title-page.html)  [rust](https://www.rust-lang.org/zh-CN/)**(计划时间 22/11/1 - 23/1/1)** 未完成
 
 ## jenkins 安装
 ~~~

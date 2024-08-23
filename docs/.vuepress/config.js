@@ -31,7 +31,7 @@ export default defineUserConfig({
             {
                 text: 'node',
                 children: [
-                    '/node/init','/node/mysql','/node/typeorm','/node/taskScheduling','/node/typeorm一对多注解','/node/mysql','/node/fs'
+                    '/node/init','/node/mysql','/node/typeorm','/node/taskScheduling','/node/typeorm一对多注解','/node/sql','/node/fs'
                 ]
             },
             {

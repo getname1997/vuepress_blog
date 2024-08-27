@@ -41,6 +41,12 @@ export default defineUserConfig({
                 ]
             },
             {
+                text: 'python',
+                children: [
+                    '/python/基础语法'
+                ]
+            },
+            {
                 text: 'rust',
                 children: [
                     '/rust/基础数据类型','/rust/复合类型','/rust/rust控制流',

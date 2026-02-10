@@ -41,6 +41,12 @@ export default defineUserConfig({
                 ]
             },
             {
+                text: '机器学习',
+                children: [
+                    '/machine_learning/1.入门','/machine_learning/2.基础实验','/machine_learning/3.性能公式','/machine_learning/4.线性回归'
+                ]
+            },
+            {
                 text: 'python',
                 children: [
                     '/python/基础语法'

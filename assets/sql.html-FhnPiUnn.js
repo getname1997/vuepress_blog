@@ -1,0 +1,126 @@
+import{_ as n,c as a,a as e,o as i}from"./app-Bjm7WZ4G.js";const l={};function p(c,s){return i(),a("div",null,[...s[0]||(s[0]=[e(`<h1 id="sql-练习" tabindex="-1"><a class="header-anchor" href="#sql-练习"><span>sql 练习</span></a></h1><h2 id="初始化数据库" tabindex="-1"><a class="header-anchor" href="#初始化数据库"><span>初始化数据库</span></a></h2><div class="language-SQL line-numbers-mode" data-highlighter="prismjs" data-ext="SQL"><pre><code class="language-SQL"><span class="line">    -- 创建数据库</span>
+<span class="line">  create database practice;</span>
+<span class="line">    -- 切换数据库</span>
+<span class="line">  use practice;</span>
+<span class="line"></span>
+<span class="line">    -- 创建 customers 表，用于存储客户信息</span>
+<span class="line">CREATE TABLE IF NOT EXISTS \`customers\` (</span>
+<span class="line"> \`id\` int(11) NOT NULL AUTO_INCREMENT COMMENT &#39;客户ID，自增长&#39;,</span>
+<span class="line"> \`name\` varchar(255) NOT NULL COMMENT &#39;客户姓名，非空&#39;,</span>
+<span class="line"> PRIMARY KEY (\`id\`)</span>
+<span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&#39;客户信息表&#39;;</span>
+<span class="line"></span>
+<span class="line">-- 创建 orders 表，用于存储订单信息</span>
+<span class="line">CREATE TABLE IF NOT EXISTS \`orders\` (</span>
+<span class="line"> \`id\` int(11) NOT NULL AUTO_INCREMENT COMMENT &#39;订单ID，自增长&#39;,</span>
+<span class="line"> \`customer_id\` int(11) NOT NULL COMMENT &#39;客户ID，非空&#39;,</span>
+<span class="line"> \`order_date\` date NOT NULL COMMENT &#39;订单日期，非空&#39;,</span>
+<span class="line"> \`total_amount\` decimal(10,2) NOT NULL COMMENT &#39;订单总金额，非空&#39;,</span>
+<span class="line"> PRIMARY KEY (\`id\`),</span>
+<span class="line"> FOREIGN KEY (\`customer_id\`) REFERENCES \`customers\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE</span>
+<span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&#39;订单信息表&#39;;</span>
+<span class="line"></span>
+<span class="line">-- 创建 order_items 表，用于存储订单商品信息</span>
+<span class="line">CREATE TABLE IF NOT EXISTS \`order_items\` (</span>
+<span class="line"> \`id\` int(11) NOT NULL AUTO_INCREMENT COMMENT &#39;商品ID，自增长&#39;,</span>
+<span class="line"> \`order_id\` int(11) NOT NULL COMMENT &#39;订单ID，非空&#39;,</span>
+<span class="line"> \`product_name\` varchar(255) NOT NULL COMMENT &#39;商品名称，非空&#39;,</span>
+<span class="line"> \`quantity\` int(11) NOT NULL COMMENT &#39;商品数量，非空&#39;,</span>
+<span class="line"> \`price\` decimal(10,2) NOT NULL COMMENT &#39;商品单价，非空&#39;,</span>
+<span class="line"> PRIMARY KEY (\`id\`),</span>
+<span class="line"> FOREIGN KEY (\`order_id\`) REFERENCES \`orders\` (\`id\`) ON DELETE CASCADE ON UPDATE CASCADE</span>
+<span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=&#39;订单商品信息表&#39;;</span>
+<span class="line"></span>
+<span class="line">-- 向 customers 表插入数据</span>
+<span class="line">INSERT INTO \`customers\` (\`name\`)</span>
+<span class="line">    VALUES</span>
+<span class="line">        (&#39;张丽娜&#39;),(&#39;李明&#39;),(&#39;王磊&#39;),(&#39;赵静&#39;),(&#39;钱伟&#39;),</span>
+<span class="line">        (&#39;孙芳&#39;),(&#39;周涛&#39;),(&#39;吴洋&#39;),(&#39;郑红&#39;),(&#39;刘华&#39;),</span>
+<span class="line">        (&#39;陈明&#39;),(&#39;杨丽&#39;),(&#39;王磊&#39;),(&#39;张伟&#39;),(&#39;李娜&#39;),</span>
+<span class="line">        (&#39;刘洋&#39;),(&#39;陈静&#39;),(&#39;杨阳&#39;),(&#39;王丽&#39;),(&#39;张强&#39;);</span>
+<span class="line"></span>
+<span class="line">-- 向 orders 表插入数据</span>
+<span class="line">INSERT INTO \`orders\` (\`customer_id\`, \`order_date\`, \`total_amount\`)</span>
+<span class="line">    VALUES</span>
+<span class="line">        (1, &#39;2022-01-01&#39;,100.00),(1, &#39;2022-01-02&#39;,200.00),</span>
+<span class="line">        (2, &#39;2022-01-03&#39;,300.00),(2, &#39;2022-01-04&#39;,400.00),</span>
+<span class="line">        (3, &#39;2022-01-05&#39;,500.00),(3, &#39;2022-01-06&#39;,600.00),</span>
+<span class="line">        (4, &#39;2022-01-07&#39;,700.00),(4, &#39;2022-01-08&#39;,800.00),</span>
+<span class="line">        (5, &#39;2022-01-09&#39;,900.00),(5, &#39;2022-01-10&#39;,1000.00);</span>
+<span class="line"></span>
+<span class="line">-- 向 order_items 表插入数据</span>
+<span class="line">INSERT INTO \`order_items\` (\`order_id\`, \`product_name\`, \`quantity\`, \`price\`)</span>
+<span class="line">    VALUES</span>
+<span class="line">        (1, &#39;耐克篮球鞋&#39;,1,100.00),</span>
+<span class="line">        (1, &#39;阿迪达斯跑步鞋&#39;,2,50.00),</span>
+<span class="line">        (2, &#39;匡威帆布鞋&#39;,3,100.00),</span>
+<span class="line">        (2, &#39;万斯板鞋&#39;,4,50.00),</span>
+<span class="line">        (3, &#39;新百伦运动鞋&#39;,5,100.00),</span>
+<span class="line">        (3, &#39;彪马休闲鞋&#39;,6,50.00),</span>
+<span class="line">        (4, &#39;锐步经典鞋&#39;,7,100.00),</span>
+<span class="line">        (5, &#39;亚瑟士运动鞋&#39;,10,50.00),</span>
+<span class="line">        (5, &#39;帆布鞋&#39;,1,100.00),</span>
+<span class="line">        (1, &#39;苹果手写笔&#39;,2,50.00),</span>
+<span class="line">        (2, &#39;电脑包&#39;,3,100.00),</span>
+<span class="line">        (3, &#39;苹果手机&#39;,4,50.00),</span>
+<span class="line">        (4, &#39;苹果耳机&#39;,5,100.00),</span>
+<span class="line">        (5, &#39;苹果平板&#39;,7,100.00);</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="获取每一个人的总价" tabindex="-1"><a class="header-anchor" href="#获取每一个人的总价"><span>获取每一个人的总价</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">  <span class="token keyword">select</span>  name , SUM<span class="token punctuation">(</span>o.total_amount<span class="token punctuation">)</span> as 总价 from customers  <span class="token function">join</span> orders o on customers.id <span class="token operator">=</span> o.customer_id group by customer_id<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="获取每一个人的总价占全部的比例" tabindex="-1"><a class="header-anchor" href="#获取每一个人的总价占全部的比例"><span>获取每一个人的总价占全部的比例</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"> <span class="token keyword">select</span>  name ,  SUM<span class="token punctuation">(</span>o.total_amount<span class="token punctuation">)</span> / <span class="token punctuation">(</span>select sum<span class="token punctuation">(</span>total_amount<span class="token punctuation">)</span> from orders<span class="token punctuation">)</span> as 比例 </span>
+<span class="line">      from customers</span>
+<span class="line">      <span class="token function">join</span> orders o</span>
+<span class="line">      on customers.id <span class="token operator">=</span> o.customer_id </span>
+<span class="line">      group by customer_id<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="需求-3-查询每个客户的订单总金额-并列出每个订单的商品清单" tabindex="-1"><a class="header-anchor" href="#需求-3-查询每个客户的订单总金额-并列出每个订单的商品清单"><span>需求 3：查询每个客户的订单总金额，并列出每个订单的商品清单</span></a></h3><div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre><code class="language-sql"><span class="line"> <span class="token keyword">select</span> name<span class="token punctuation">,</span> oi<span class="token punctuation">.</span>product_name<span class="token punctuation">,</span>o<span class="token punctuation">.</span>total_amount <span class="token punctuation">,</span>oi<span class="token punctuation">.</span>price <span class="token keyword">from</span> customers <span class="token keyword">join</span> orders o <span class="token keyword">on</span> customers<span class="token punctuation">.</span>id <span class="token operator">=</span> o<span class="token punctuation">.</span>customer_id  <span class="token keyword">join</span> order_items oi <span class="token keyword">on</span> o<span class="token punctuation">.</span>id <span class="token operator">=</span> oi<span class="token punctuation">.</span>order_id <span class="token keyword">order</span> <span class="token keyword">by</span> name <span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="需求-4-需求-4-查询每个客户的订单总金额-并列出每个订单的商品清单-同时只显示客户名字姓-张-的客户的记" tabindex="-1"><a class="header-anchor" href="#需求-4-需求-4-查询每个客户的订单总金额-并列出每个订单的商品清单-同时只显示客户名字姓-张-的客户的记"><span>需求 4 需求 4：查询每个客户的订单总金额，并列出每个订单的商品清单，同时只显示客户名字姓“张”的客户的记</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token keyword">select</span> name, oi.product_name,o.order_date,o.total_amount ,oi.price</span>
+<span class="line">from customers</span>
+<span class="line">    <span class="token function">join</span> orders o on customers.id <span class="token operator">=</span> o.customer_id</span>
+<span class="line">    <span class="token function">join</span> order_items oi on o.id <span class="token operator">=</span> oi.order_id</span>
+<span class="line">    where name like <span class="token string">&#39;%张%&#39;</span></span>
+<span class="line">    order by o.order_date, oi.price desc<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="需求-5-查询每个客户的订单总金额-并列出每个订单的商品清单-同时只显示订单日期在2022年1月1日到2022年1月3日之间的记录" tabindex="-1"><a class="header-anchor" href="#需求-5-查询每个客户的订单总金额-并列出每个订单的商品清单-同时只显示订单日期在2022年1月1日到2022年1月3日之间的记录"><span>需求 5:查询每个客户的订单总金额，并列出每个订单的商品清单，同时只显示订单日期在2022年1月1日到2022年1月3日之间的记录</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">  <span class="token keyword">select</span> name, oi.product_name,o.order_date from</span>
+<span class="line">         customers</span>
+<span class="line">             <span class="token function">join</span> orders o on customers.id <span class="token operator">=</span> o.customer_id</span>
+<span class="line">             <span class="token function">join</span> order_items oi on o.id <span class="token operator">=</span> oi.order_id</span>
+<span class="line">            where o.order_date BETWEEN <span class="token string">&#39;2022-01-01&#39;</span> AND  <span class="token string">&#39;2022-01-03&#39;</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="需求-6-查询每个客户的订单总金额-并计算商品数量-只包含商品名称包含-鞋-的商品-商品名用-连接-显示前-3-条记录" tabindex="-1"><a class="header-anchor" href="#需求-6-查询每个客户的订单总金额-并计算商品数量-只包含商品名称包含-鞋-的商品-商品名用-连接-显示前-3-条记录"><span>需求 6：查询每个客户的订单总金额，并计算商品数量，只包含商品名称包含“鞋”的商品，商品名用-连接，显示前 3 条记录：</span></a></h3><blockquote><p>group_concat 组字段串拼接<br> distinct 去重 separator 拼接字符串 默认 &#39;,&#39;,</p></blockquote><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">  <span class="token keyword">select</span> name, oi.product_name,o.order_date from</span>
+<span class="line">         customers</span>
+<span class="line">             <span class="token function">join</span> orders o on customers.id <span class="token operator">=</span> o.customer_id</span>
+<span class="line">             <span class="token function">join</span> order_items oi on o.id <span class="token operator">=</span> oi.order_id</span>
+<span class="line">            where o.order_date BETWEEN <span class="token string">&#39;2022-01-01&#39;</span> AND  <span class="token string">&#39;2022-01-03&#39;</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="需求-7-查询存在订单的客户" tabindex="-1"><a class="header-anchor" href="#需求-7-查询存在订单的客户"><span>需求 7：查询存在订单的客户</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">    SELECT * FROM customers c</span>
+<span class="line">      WHERE EXISTS <span class="token punctuation">(</span></span>
+<span class="line">            SELECT <span class="token number">1</span> FROM orders o <span class="token function">join</span> order_items oi on o.id <span class="token operator">=</span> oi.order_id WHERE o.customer_id <span class="token operator">=</span> c.id</span>
+<span class="line">    <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment"># 取false</span></span>
+<span class="line">    SELECT * FROM customers c</span>
+<span class="line">      WHERE NOT EXISTS <span class="token punctuation">(</span></span>
+<span class="line">            SELECT <span class="token number">1</span> FROM orders o WHERE o.customer_id <span class="token operator">=</span> c.id</span>
+<span class="line">    <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment"># 查询</span></span>
+<span class="line">    SELECT * FROM orders</span>
+<span class="line">      JOIN customers ON orders.customer_id <span class="token operator">=</span> customers.id<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="需求-8-将王磊的订单总金额打九折" tabindex="-1"><a class="header-anchor" href="#需求-8-将王磊的订单总金额打九折"><span>需求 8：将王磊的订单总金额打九折</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># IN 组方式删除</span></span>
+<span class="line">update orders o <span class="token builtin class-name">set</span> o.total_amount <span class="token operator">=</span> o.total_amount/0.9 where o.customer_id IN  <span class="token punctuation">(</span></span>
+<span class="line">    <span class="token keyword">select</span> <span class="token function">id</span> from customers where name <span class="token operator">=</span> <span class="token string">&#39;王磊&#39;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token comment"># 直接删除</span></span>
+<span class="line">update orders o <span class="token builtin class-name">set</span> o.total_amount <span class="token operator">=</span> o.total_amount*0.9 where   <span class="token punctuation">(</span></span>
+<span class="line">    <span class="token keyword">select</span> <span class="token number">1</span> from customers where name <span class="token operator">=</span> <span class="token string">&#39;王磊&#39;</span> and customers.id <span class="token operator">=</span> o.customer_id<span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="需求-9-删除李明名下商品名叫耐克篮球鞋的" tabindex="-1"><a class="header-anchor" href="#需求-9-删除李明名下商品名叫耐克篮球鞋的"><span>需求 9：删除李明名下商品名叫耐克篮球鞋的</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">delete from order_items where <span class="token punctuation">(</span>select <span class="token number">1</span> from customers where product_name <span class="token operator">=</span> <span class="token string">&#39;耐克篮球鞋&#39;</span> and name <span class="token operator">=</span> <span class="token string">&#39;李明&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="事务相关" tabindex="-1"><a class="header-anchor" href="#事务相关"><span>事务相关</span></a></h2><h3 id="开启事务" tabindex="-1"><a class="header-anchor" href="#开启事务"><span>开启事务</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">  START TRANSACTION<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="提交事务" tabindex="-1"><a class="header-anchor" href="#提交事务"><span>提交事务</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">COMMIT<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="回滚事务" tabindex="-1"><a class="header-anchor" href="#回滚事务"><span>回滚事务</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">ROLLBACK<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="取消事务" tabindex="-1"><a class="header-anchor" href="#取消事务"><span>取消事务</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">    rollback<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="保存节点" tabindex="-1"><a class="header-anchor" href="#保存节点"><span>保存节点</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">    SAVEPOINT aaa<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    UPDATE order_items SET <span class="token assign-left variable">quantity</span><span class="token operator">=</span><span class="token number">1</span> WHERE <span class="token assign-left variable">order_id</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    SAVEPOINT bbb<span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    UPDATE orders SET <span class="token assign-left variable">total_amount</span><span class="token operator">=</span><span class="token number">200</span> WHERE <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line">    SAVEPOINT ccc<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="读取节点" tabindex="-1"><a class="header-anchor" href="#读取节点"><span>读取节点</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">    ROLLBACK TO SAVEPOINT bbb<span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h3 id="查询隔离级别" tabindex="-1"><a class="header-anchor" href="#查询隔离级别"><span>查询隔离级别</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">  <span class="token keyword">select</span> @@transaction_isolation</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div>`,37)])])}const d=n(l,[["render",p],["__file","sql.html.vue"]]),t=JSON.parse('{"path":"/node/sql.html","title":"sql 练习","lang":"zh-CN","frontmatter":{},"git":{"updatedTime":1724739555000,"contributors":[{"name":"G_xing","username":"","email":"g_xing@163.com","commits":4}],"changelog":[{"hash":"4c1dbc82a8c17104754fa8bfb6a2886b23d60ba4","time":1724739555000,"email":"g_xing@163.com","author":"G_xing","message":"feat: 日常更新"},{"hash":"0a194417fefad273baf36255ef6ff2f9514c7c05","time":1724739555000,"email":"g_xing@163.com","author":"G_xing","message":"feat: 日常更新"},{"hash":"c5bff625719641ef4af35d01787f82498e554c51","time":1724379920000,"email":"g_xing@163.com","author":"G_xing","message":"feat: sql练习"},{"hash":"699c6ff12eb7dfdcaacddfe0fc72f51b0bb18524","time":1724315306000,"email":"g_xing@163.com","author":"G_xing","message":"feat: sql练习"}]},"filePathRelative":"node/sql.md"}');export{d as comp,t as data};

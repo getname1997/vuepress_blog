@@ -1,9 +1,10 @@
-import { defineUserConfig, defaultTheme } from 'vuepress'
-
+import { defineUserConfig } from 'vuepress'
+import { viteBundler } from '@vuepress/bundler-vite'
+import { defaultTheme } from '@vuepress/theme-default'
 export default defineUserConfig({
     lang: 'zh-CN',
     title: 'Gx',
-    description: '',
+    bundler: viteBundler(),
     Frontmatter:{
         home: true,
     },
@@ -64,9 +65,6 @@ export default defineUserConfig({
                     '/vue3/v3基础','/vue3/Git'
                 ]
             },
-
-
         ]
-
     })
 })

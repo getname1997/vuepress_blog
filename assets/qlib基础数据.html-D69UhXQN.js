@@ -1,0 +1,30 @@
+import{_ as s,c as e,a as l,o as a}from"./app-BbvArNMd.js";const i={};function c(d,n){return a(),e("div",null,[...n[0]||(n[0]=[l(`<ul><li>&#39;$open&#39;：开盘价</li><li>&#39;$high&#39;：最高价</li><li>&#39;$low&#39;：最低价</li><li>&#39;$close&#39;：收盘价</li><li>&#39;$volume&#39;：成交量</li><li>&#39;$vwap&#39;：成交量加权平均价</li></ul><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">&#39;$open/Ref($close,1)-1&#39;      # 开盘涨跌幅</span>
+<span class="line">&#39;$high/Ref($close,1)-1&#39;      # 最高涨跌幅</span>
+<span class="line">&#39;$low/Ref($close,1)-1&#39;       # 最低涨跌幅</span>
+<span class="line">&#39;$close/Ref($close,1)-1&#39;     # 收盘涨跌幅</span>
+<span class="line">&#39;$vwap/Ref($vwap,1)-1&#39;       # VWAP涨跌幅</span>
+<span class="line">&#39;Mean($close, 5)&#39;     # 5日均线</span>
+<span class="line">&#39;Mean($close, 10)&#39;    # 10日均线</span>
+<span class="line">&#39;Mean($close, 20)&#39;    # 20日均线</span>
+<span class="line">&#39;Mean($close, 60)&#39;    # 60日均线</span>
+<span class="line">&#39;EMA($close, 12)&#39;     # 12日指数移动平均</span>
+<span class="line">&#39;Ref($close, 1)&#39;          # 前一日收盘价</span>
+<span class="line">&#39;Ref($close, 5)&#39;          # 前5日收盘价</span>
+<span class="line">&#39;$close/Ref($close, 5)-1&#39; # 5日收益率</span>
+<span class="line">&#39;$close/Ref($close, 20)-1&#39;# 20日收益率</span>
+<span class="line">&#39;$close/Ref($close, 60)-1&#39;# 60日收益率</span>
+<span class="line">&#39;Mean($volume, 5)&#39;        # 5日平均成交量</span>
+<span class="line">&#39;Mean($volume, 20)&#39;       # 20日平均成交量</span>
+<span class="line">&#39;$volume/Mean($volume,20)-1&#39;  # 成交量比</span>
+<span class="line">&#39;Ref(feature, n)&#39;     # 前n期的值</span>
+<span class="line">&#39;Mean(feature, n)&#39;    # n期均值</span>
+<span class="line">&#39;Std(feature, n)&#39;     # n期标准差</span>
+<span class="line">&#39;Skew(feature, n)&#39;    # n期偏度</span>
+<span class="line">&#39;Kurt(feature, n)&#39;    # n期峰度</span>
+<span class="line">&#39;Max(feature, n)&#39;     # n期最大值</span>
+<span class="line">&#39;Min(feature, n)&#39;     # n期最小值</span>
+<span class="line">&#39;Sum(feature, n)&#39;     # n期求和</span>
+<span class="line">&#39;EMA(feature, n)&#39;     # n期指数移动平均</span>
+<span class="line">&#39;Rank(feature)&#39;       # 横截面排序</span>
+<span class="line">&#39;Delta(feature, n)&#39;   # n期变化量</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,2)])])}const v=s(i,[["render",c],["__file","qlib基础数据.html.vue"]]),r=JSON.parse('{"path":"/python/qlib%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE.html","title":"","lang":"zh-CN","frontmatter":{},"git":{"updatedTime":1773020306000,"contributors":[{"name":"g_xing","username":"","email":"g_xing@163.com","commits":1}],"changelog":[{"hash":"1ed0e0b2faefeac3f186b556ea91afe1e91079c1","time":1773020306000,"email":"g_xing@163.com","author":"g_xing","message":"feat: 日常更新-2026-3-9"}]},"filePathRelative":"python/qlib基础数据.md"}');export{v as comp,r as data};
